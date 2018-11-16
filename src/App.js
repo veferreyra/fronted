@@ -18,17 +18,27 @@ const styles = theme => ({
     minWidth: 700,
   },
 });
-
+ 
 class App extends React.Component {
 
   state = {
-    gastos: []
+    gastos: [{
+      "id": 1,
+      "nombre": "Edenor2",
+      "importe": 804
+      },
+      {
+      "id": 2,
+      "nombre": "AySa",
+      "importe": 236
+      }]
   }
 
   componentDidMount = () => {
-    axios.get('http://localhost:8000/gastos')
+    axios.get('http://localhost:4000/gastos')
       .then(res => res.data)
       .then(gastos => {
+        debugger
         this.setState({ gastos })
       })
   }
